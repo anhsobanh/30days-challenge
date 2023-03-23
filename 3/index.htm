@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Modal  Show</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<button class="open-modal-btn"> OpenModel</button>
+	<div class="modal hide">
+		<div class="modal_inner">
+			<div class="modal__header">
+				<p>Wellcome to Nodemy</p>
+				<i class="fas fa-times"></i>
+			</div>
+			<div class="modal__body">
+				<h2>Modal</h2>
+				<p>Đây là phần body của modal</p>
+			</div>
+			<div class="modal__footer">
+				<button>Close</button>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	var btnOpen = document.querySelector('.open-modal-btn')
+	var modal = document.querySelector('.modal')
+	var iconClose = document.querySelector('.modal__header i')
+	var btnClose = document.querySelector('.modal__footer button')
+
+	function toggleModal(e){
+		console.log(e.target)
+		modal.classList.toggle('hide')
+	}
+
+	btnOpen.addEventListener('click',toggleModal)
+	btnClose.addEventListener('click',toggleModal)
+	iconClose.addEventListener('click',toggleModal)
+	modal.addEventListener('click', function(e){
+		if(e.target == e.currentTarget){
+			toggleModal()
+		}
+})
+</script>
+</html>
